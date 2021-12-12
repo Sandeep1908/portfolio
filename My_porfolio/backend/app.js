@@ -4,6 +4,7 @@ import express from 'express';
 import router from './routes/web.js';
 import connectdb from './db/connect.js';
 import './models/porjectModel.js'
+import './models/toolsModel.js'
 import cors from 'cors'
 
 const app=express();

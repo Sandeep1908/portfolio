@@ -5,8 +5,7 @@ const porjectSchema=new mongoose.Schema({
     title:{type:String},
     discription:{type:String},
     git_link:{type:String},
-    tech:{type:Array}
-
+    tech:{type:Array},
 
 })
 

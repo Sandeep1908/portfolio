@@ -1,6 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
+import React,{useEffect,useState} from 'react';
+import styled from 'styled-components';
 function Tools() {
+    const[val,setVal]=useState([]);
+    console.log(val)
+    useEffect(()=>{
+        const get_tools=async()=>{
+            const res=await fetch('http://localhost:8000/tools/');
+            const result=await res.json();
+            setVal(result);
+        }
+        get_tools();
+    },[])
     return (
         <>
         <Item1>
@@ -20,30 +30,21 @@ function Tools() {
                 <p data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, deleniti.</p>
                 
             <Wrap>
-                <Tool>
-                    <img src="https://w7.pngwing.com/pngs/452/495/png-transparent-react-javascript-angularjs-ionic-github-text-logo-symmetry-thumbnail.png" alt="Logo" data-aos="fade-up"/>
-                    <span data-aos="fade-up">React.Js</span>
-                </Tool>
-                <Tool>
-                    <img src="https://i0.wp.com/copyassignment.com/wp-content/uploads/2021/08/Django-logo.jpg?fit=474%2C474&ssl=1" alt="Logo" data-aos="fade-up"/>
-                    <span data-aos="fade-up">Django</span>
-                </Tool>
-                <Tool>
-                    <img src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png" alt="Logo" data-aos="fade-up"/>
-                    <span data-aos="fade-up">JavaScript</span>
-                </Tool>
-                <Tool>
-                    <img src="https://image.flaticon.com/icons/png/512/919/919827.png" alt="Logo" data-aos="fade-up" />
-                    <span data-aos="fade-up">Html 5</span>
-                </Tool>
-                <Tool>
-                    <img src="https://image.flaticon.com/icons/png/512/919/919826.png" alt="Logo" data-aos="fade-up"/>
-                    <span data-aos="fade-up">Css 3</span>
-                </Tool>
-                <Tool>
-                    <img src="https://raw.githubusercontent.com/themedotid/bootstrap-icon/HEAD/docs/bootstrap-icon-css.png" alt="Logo" data-aos="fade-up"/>
-                    <span data-aos="fade-up">BootStrap</span>
-                </Tool>
+                {
+                        val&&
+                        val.map((curr,idx)=>{
+                            console.log(curr);
+                            return(
+                                <Tool>
+                                <img src={curr.tool} alt="Logo" data-aos="fade-up"/>
+                                <span data-aos="fade-up">{curr.name}</span>
+                            </Tool>
+                            )
+                        })
+                }
+                
+               
+                
             </Wrap>
             </Contents>
         </Container>
