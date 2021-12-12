@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.toggle.active.active::before{
+background-color: white;
+transform: translateY(0px) rotate(45deg)!important;
+
+}
+
+.toggle.active::after{
+  background-color: white;
+  transform: translateY(0px) rotate(-45deg)!important;
+}
+
+.navigation.active{
+ left:0px;
+}
+
+.sec.active{
+  left:100%;
+}
+.toggle.active{
+  position: fixed;
+  left:-8%;
+  top:50px;
+  
+}
+.Hire.active{
+  display: none;
+}
+.logo.active,.process.active,.project.active,.contact.active,.footer.active{
+  left:100%;
+}
+
+
+
+@media(max-width:991px)
+{
+  .sec{
+    flex-direction:column;
+    justify-content:center;
+    padding:40px;
+  }
+  .sec header{
+    padding:20px 20px;
+  }
+  .sec .image1{
+    min-width:300px;
+    height: 300px;
+  }
+  .nav-img{
+    display: none;
+  }
+  .nav-list{
+    font-size:12px;
+  }
+  /* .toggle.active{
+    left:90%;
+  } */
+  
+  
+}
+
